@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- <section>
+        <div class="container">
+            <h2 class="text-center py-3">Chat App </h2>
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <table class="table table-striped">
+                        <tbody class="">
+                            <tr>
+                                <td>You Joined</td>
+                            </tr>
+                            <tr>
+                                <td>Vaibhav: Hi</td>
+                            </tr>
+                            <tr>
+                                <td>Manish: hello</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row justify-content-center align-content-end">
+                    <div class="col-6">
+                        <form class="hstack g-2">
+                            <input class="form-control align-self-end" type="text" name="chat">
+                            <button class="btn btn-dark">Send</button>
+                        </form>
+                    </div>
+            </div>
+        </div>
+</section> -->
+<div class="container">
+  <header class="text-center mt-4">
+    <h1>Chat App</h1>
+  </header>
+
+  <section class="mt-4">
+    <table class="table table-striped">
+        <tbody id="chats">
+            <tr>
+                <td>You Joined</td>
+            </tr>
+            <tr>
+                <td>Vaibhav: Hi</td>
+            </tr>
+            <tr>
+                <td>Manish: hello</td>
+            </tr>
+        </tbody>
+    </table>
+  </section>
+
+  <footer class="text-center fixed-bottom mb-4">
+  <div class="container">
+        <form class="input-form d-flex justify-content-center">
+          <input type="text" class="form-control me-2" placeholder="Type your message...">
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+</footer>
+ 
+</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+        <script src="main.js"></script>
+</body>
+</html>
