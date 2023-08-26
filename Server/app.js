@@ -16,14 +16,19 @@ app.use(cors());
 
 //model
 const User = require('./model/user');
+const Chat = require('./model/chat');
 
-app.use(bodyParser.json({ extended: false }))
+User.hasMany(Chat);
+Chat.belongsTo(User);
 
 //Routes
 const userRoutes = require('./routes/user');
+const chatRoutes = require('./routes/chat');
+
+app.use(bodyParser.json({ extended: false }))
 
 app.use('/user',userRoutes);
-
+app.use('/chat',chatRoutes);
 
 
 sequelize

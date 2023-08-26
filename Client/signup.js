@@ -1,5 +1,5 @@
-const form = document.getElementById('userForm')
-form.addEventListener('submit', createUser)
+const form = document.getElementById('userForm');
+form.addEventListener('submit', createUser);
 
 function createUser(e) {
     e.preventDefault()
