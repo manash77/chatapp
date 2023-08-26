@@ -18,7 +18,6 @@ exports.sendChat = async (req, res, next) => {
 }
 
 exports.getChat = async (req, res, next) => {
-    console.log(" get Called");
     try {
         const chats = await Chat.findAll();
         if (chats) {

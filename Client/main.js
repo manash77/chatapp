@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', isLoggedIn)
-window.addEventListener('DOMContentLoaded',getAllChats)
+window.addEventListener('DOMContentLoaded', getAllChats)
 const form = document.getElementById("chatForm");
 const chatsElement = document.getElementById("chats");
 
@@ -56,6 +56,7 @@ async function getAllChats() {
 }
 
 function renderChat(chats) {
+    chatsElement.innerHTML = '';
     chats.forEach(chat => {
         addChat(chat)
     });
@@ -78,3 +79,6 @@ function parseJwt(token) {
     return JSON.parse(jsonPayload);
 }
 
+setInterval( ()=>{
+    getAllChats();
+},1000)
