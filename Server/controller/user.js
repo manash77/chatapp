@@ -3,30 +3,35 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10;
 
-exports.signUp = (req,res,next) =>{
-    console.log("req",req.body);
-    const { name, email, phone, password } = req.body;
+exports.signUp = (req, res, next) => {
+    try {
+        const { name, email, phone, password } = req.body;
 
-    if (name == '' || email == '' || phone == '' || password == '' ) {
-        return res.status(400).json({ err: "Bad parameters Something is missing" });
-    }
-    bcrypt.hash(password, saltRounds, async (err, password) => {
-        console.error(err);
-        const [user, created] = await User.findOrCreate({
-            where: { email: email },
-            defaults: {
+        if (name == '' || email == '' || phone == '' || password == '') {
+            throw new Error("Missing Values Some Values")
+        }
+        bcrypt.hash(password, saltRounds, async (err, password) => {
+            if (err) {
+                throw new Error("Password Was not Provided")
+            }
+            const user = await User.create({
                 name,
                 email,
                 phone,
                 password
+            });
+            if (user) {
+                return res.status(201).json(user)
+            } else {
+                throw new Error("User Was not Created")
             }
-        });
-        if (created) {
-            return res.status(201).json(user)
-        } else {
-            return res.json({ userExists: true })
         }
-    });
+        )
+    }
+    catch (error) {
+        res.status(400).json({ success: false, error })
+    }
+
 }
 
 exports.generateToken = (id, name) => {

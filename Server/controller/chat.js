@@ -19,7 +19,12 @@ exports.sendChat = async (req, res, next) => {
 
 exports.getChat = async (req, res, next) => {
     try {
-        const chats = await Chat.findAll();
+        const chats = await Chat.findAll({
+            order: [
+                ['createdAt', 'DESC'],
+              ],
+            limit: 15
+        });
         if (chats) {
             res.status(200).json({success:true,chats})
         }else{

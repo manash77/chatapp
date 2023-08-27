@@ -17,18 +17,27 @@ app.use(cors());
 //model
 const User = require('./model/user');
 const Chat = require('./model/chat');
+const Group = require('./model/group');
 
 User.hasMany(Chat);
 Chat.belongsTo(User);
 
+Group.hasMany(Chat);
+Chat.belongsTo(Group);
+
+User.hasMany(Group);
+Group.belongsTo(User);
+
 //Routes
 const userRoutes = require('./routes/user');
 const chatRoutes = require('./routes/chat');
+const groupRoutes = require('./routes/group');
 
 app.use(bodyParser.json({ extended: false }))
 
 app.use('/user',userRoutes);
 app.use('/chat',chatRoutes);
+app.use('/group',groupRoutes);
 
 
 sequelize
